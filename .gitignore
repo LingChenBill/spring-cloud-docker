@@ -1,19 +1,29 @@
-# Compiled class file
+# Compiled class file.
 *.class
 
-# Log file
+# Log file.
 *.log
 
-# BlueJ files
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+target/
+.mvn/
+.mvn/wrapper/maven-wrapper.jar
+mvnw
+mvnw.cmd
+
+# BlueJ files.
 *.ctxt
 
-# Mobile Tools for Java (J2ME)
+# Mobile Tools for Java (J2ME).
 .mtj.tmp/
 
 # Package Files #
 *.jar
 *.war
-*.nar
 *.ear
 *.zip
 *.tar.gz
