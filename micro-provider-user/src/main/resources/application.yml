@@ -1,6 +1,8 @@
 server:
   port: 8000
 spring:
+  application:
+    name: micro-provider-user
   jpa:
     generate-ddl: false
     show-sql: true
@@ -31,3 +33,11 @@ info:
     encoding: @project.build.sourceEncoding@
     java:
       source: @java.version@
+# eureka config。
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    # 表示将自己的IP注册到Eureka server。
+    prefer-ip-address: true

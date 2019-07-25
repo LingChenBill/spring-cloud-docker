@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: micro-discovery-eureka-backup
+---
+spring:
+  # 指定profile=peer1
+  profiles: peer1
+server:
+  port: 8761
+eureka:
+  instance:
+    # 当指定profile=peer1时，主机名为peer1
+    hostname: peer1
+  client:
+    service-url:
+      # 将自己注册到peer2这个Eureka上面去。(/etc/hosts加入：127.0.0.1 peer1 peer2)
+      defaultZone: http://peer2:8762/eureka/
+---
+spring:
+  profiles: peer2
+server:
+  port: 8762
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    service-url:
+      # 将自己注册到peer1这个Eureka上面去。
+      defaultZone: http://peer1:8761/eureka/
+

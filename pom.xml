@@ -9,6 +9,11 @@
 
   <modules>
     <module>micro-simple-provider-user</module>
+    <module>micro-simple-consumer-movie</module>
+    <module>micro-discovery-eureka</module>
+    <module>micro-discovery-eureka-backup</module>
+    <module>micro-provider-user</module>
+    <module>micro-consumer-movie</module>
   </modules>
 
 </project>
