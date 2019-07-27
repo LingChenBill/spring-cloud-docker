@@ -8,12 +8,24 @@
   <packaging>pom</packaging>
 
   <modules>
+    <!--简单用户提供微服务。-->
     <module>micro-simple-provider-user</module>
+    <!--简单电影消费微服务。-->
     <module>micro-simple-consumer-movie</module>
+    <!--单节点eureka server微服务。-->
     <module>micro-discovery-eureka</module>
+    <!--集群eureka server微服务。-->
     <module>micro-discovery-eureka-backup</module>
+    <!--用户提供微服务(注册到eureka server)。-->
     <module>micro-provider-user</module>
+    <!--电影消费微服务(注册到eureka server)。-->
     <module>micro-consumer-movie</module>
+    <!--用户认证的eureka server微服务。-->
+    <module>micro-discovery-eureka-authenticating</module>
+    <!--用户提供（拥有Eureka元数据）微服务。-->
+    <module>micro-provider-user-my-metadata</module>
+    <!--电影微服务（查询用户提供微服务的Eureka元数据）。-->
+    <module>micro-consumer-movie-understanding-metadata</module>
   </modules>
 
 </project>

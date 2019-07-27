@@ -2,7 +2,7 @@ server:
   port: 8000
 spring:
   application:
-    name: micro-provider-user
+    name: micro-provider-user-my-metadata
   jpa:
     generate-ddl: false
     show-sql: true
@@ -45,3 +45,6 @@ eureka:
   instance:
     # 表示将自己的IP注册到Eureka server。
     prefer-ip-address: true
+    metadata-map:
+      # 自定义的元数据，key/value都可以随便写。
+      my-metadata: my-selfData
