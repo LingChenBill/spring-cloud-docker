@@ -1,0 +1,12 @@
+server:
+  port: 8010
+
+user:
+  userServiceUrl: http://localhost:8000/
+spring:
+  application:
+    name: micro-consumer-movie-without-eureka
+# Ribbon without eureka.
+micro-simple-provider-user:
+  ribbon:
+    listOfServers: localhost:8000, localhost:8001

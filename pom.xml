@@ -26,6 +26,14 @@
     <module>micro-provider-user-my-metadata</module>
     <!--电影微服务（查询用户提供微服务的Eureka元数据）。-->
     <module>micro-consumer-movie-understanding-metadata</module>
+    <!--电影微服务（Ribbon负载均衡）-->
+    <module>micro-consumer-movie-ribbon</module>
+    <!--电影微服务（Ribbon负载均衡 - 自定义Ribbon）-->
+    <module>micro-consumer-movie-ribbon-custom</module>
+    <!--电影微服务（Ribbon负载均衡 - 自定义Ribbon - 通过属性配置。）-->
+    <module>micro-consumer-movie-ribbon-custom-properties</module>
+    <!--电影微服务（脱离Eureka使用Ribbon负载均衡。）-->
+    <module>micro-consumer-movie-without-eureka</module>
   </modules>
 
 </project>

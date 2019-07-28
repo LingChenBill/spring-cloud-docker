@@ -1,6 +1,8 @@
 server:
   port: 8000
 spring:
+  application:
+    name: micro-simple-provider-user
   jpa:
     generate-ddl: false
     show-sql: true
