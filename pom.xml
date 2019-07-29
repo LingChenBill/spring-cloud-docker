@@ -34,6 +34,12 @@
     <module>micro-consumer-movie-ribbon-custom-properties</module>
     <!--电影微服务（脱离Eureka使用Ribbon负载均衡。）-->
     <module>micro-consumer-movie-without-eureka</module>
+    <!--电影微服务（整合Feign）-->
+    <module>micro-consumer-movie-feign</module>
+    <!--电影微服务（自定义Feign）-->
+    <module>micro-consumer-movie-feign-custom</module>
+    <!--用户提供微服务(附带认证)。-->
+    <module>micro-provider-user-with-auth</module>
   </modules>
 
 </project>

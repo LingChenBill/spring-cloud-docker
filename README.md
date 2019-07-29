@@ -73,3 +73,36 @@ java -jar micro-discovery-eureka-authenticating-0.0.1-SNAPSHOT.jar
    多次访问：  
    http://localhost:8010/log-instance  
    说明： Ribbon使用中：@LoadBalanced注解必须有。  
+
+13. 整合Feign
+   java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar  
+   java -jar micro-provider-user-0.0.1-SNAPSHOT-0.jar  
+   java -jar micro-provider-user-0.0.1-SNAPSHOT.jar  
+   java -jar micro-consumer-movie-feign-0.0.1-SNAPSHOT.jar  
+   访问：
+   http://localhost:8010/user/2  
+   注解：  
+   @FeignClient(name = "micro-provider-user")  
+   @EnableFeignClients  
+
+14. 自定义Feign  
+   java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar  
+   java -jar micro-provider-user-0.0.1-SNAPSHOT-0.jar  
+   java -jar micro-provider-user-0.0.1-SNAPSHOT.jar   
+   java -jar micro-consumer-movie-feign-custom-0.0.1-SNAPSHOT.jar  
+   访问：
+   http://localhost:8010/user/2  
+   注解：  
+   @Configuration  
+   @FeignClient(name = "micro-provider-user", configuration = FeignConfig.class)  
+   @RequestLine("GET /{id}")  
+
+15. 用户提供微服务（带认证）  
+   pom依赖：spring-boot-starter-security
+   java -jar micro-provider-user-with-auth-0.0.1-SNAPSHOT.jar   
+   注解：
+   @Configuration  
+   @EnableWebSecurity  
+   @EnableGlobalMethodSecurity(prePostEnabled = true)  
+   访问：  
+   http://localhost:8000/2  

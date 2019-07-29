@@ -1,0 +1,47 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: micro-provider-user-with-auth
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/spring_cloud_docker?userUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: Aa123456
+      max-wait: 60000
+      min-idle: 15
+      initial-size: 15
+      validation-query: SELECT 1
+      test-on-borrow: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+# actuator info监控信息配置。
+info:
+  app:
+    name: @project.artifactId@
+    encoding: @project.build.sourceEncoding@
+    java:
+      source: @java.version@
+# eureka config。
+eureka:
+  client:
+    service-url:
+      # 将应用注册到Eureka Server集群上。
+      # defaultZone: http://localhost:8761/eureka/
+      # defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
+      # 将微服务注册到需认证的Eureka server上。
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
+  instance:
+    # 表示将自己的IP注册到Eureka server。
+    prefer-ip-address: true
