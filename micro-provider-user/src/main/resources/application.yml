@@ -1,5 +1,5 @@
 server:
-  port: 8000
+  port: 8081
 spring:
   application:
     name: micro-provider-user
@@ -41,7 +41,22 @@ eureka:
       # defaultZone: http://localhost:8761/eureka/
       # defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
       # 将微服务注册到需认证的Eureka server上。
-      defaultZone: http://user:password123@peer1:8761/eureka/,http://peer2:8762/eureka/
+      # defaultZone: http://user:password123@peer1:8761/eureka/,http://peer2:8762/eureka/
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
   instance:
     # 表示将自己的IP注册到Eureka server。
     prefer-ip-address: true
+keycloak:
+  realm: SpringBootKeycloak
+  auth-server-url: http://localhost:8180/auth
+  ssl-required: external
+  resource: product-app
+  public-client: true
+  verify-token-audience: true
+  use-resource-role-mappings: true
+  confidential-port: 0
+  # confidential-port: 0
+#  security-constraints[0]:
+#    authRoles[0]: role-user
+#    securityCollections[0]:
+#      patterns[0]: /customers/*

@@ -40,6 +40,8 @@
     <module>micro-consumer-movie-feign-custom</module>
     <!--用户提供微服务(附带认证)。-->
     <module>micro-provider-user-with-auth</module>
+    <!--电影微服务（自定义Feign）-->
+    <module>micro-consumer-movie-feign-manual</module>
   </modules>
 
 </project>

@@ -106,3 +106,16 @@ java -jar micro-discovery-eureka-authenticating-0.0.1-SNAPSHOT.jar
    @EnableGlobalMethodSecurity(prePostEnabled = true)  
    访问：  
    http://localhost:8000/2  
+
+16. 手动创建Feign  
+   @Import(FeignClientsConfiguration.class)  
+   this.userFeignClient初期赋值    
+   启动jar：  
+   java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar  
+   java -jar micro-provider-user-with-auth-0.0.1-SNAPSHOT.jar  
+   java -jar micro-consumer-movie-feign-manual-0.0.1-SNAPSHOT.jar  
+   访问：
+   http://localhost:8010/user-admin/2  
+   http://localhost:8010/user-user/2  
+   
+   
