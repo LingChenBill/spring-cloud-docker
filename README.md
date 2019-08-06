@@ -127,5 +127,44 @@ java -jar micro-discovery-eureka-authenticating-0.0.1-SNAPSHOT.jar
    java -jar micro-provider-user-0.0.1-SNAPSHOT.jar  
    java -jar micro-consumer-movie-feign-logging-0.0.1-SNAPSHOT.jar  
    
-   
+18. ribbon整合Hystrix  
+   启动类：@EnableCircuitBreaker, @EnableHystrix  
+   controller类：@HystrixCommand(fallbackMethod = "findByIdFallback")  
+   启动jar：  
+   1) java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar  
+   2) java -jar micro-provider-user-0.0.1-SNAPSHOT.jar  
+   3) java -jar micro-consumer-movie-ribbon-hystrix-0.0.1-SNAPSHOT.jar  
+   访问：  
+   http://localhost:8010/user/2  
+   停止2），再次访问http://localhost:8010/user/2  
+
+19. feign整合Hystrix  
+   spring cloud默认已为Feign整合了Hystrix  
+   Feign接口上添加  
+   @FeignClient(name = "micro-provider-user", fallback = FeignClientFallback.class)
+   属性文件中：  
+   feign.hystrix.enabled=true
+   启动jar：  
+   1) java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar  
+   2) java -jar micro-provider-user-0.0.1-SNAPSHOT.jar  
+   3) java -jar micro-consumer-movie-feign-hystrix-fallback-0.0.1-SNAPSHOT.jar  
+   访问：  
+   http://localhost:8010/user/2  
+   停止2），再次访问http://localhost:8010/user/2 
+
+20. feign整合Hystrix查看回退原因  
+   @FeignClient(name = "micro-provider-user", fallbackFactory = FeignClientFallbackFactory.class)  
+   class FeignClientFallbackFactory implements FallbackFactory<UserFeignClient> {  
+   log.info("fallback; reason was " + cause);  
+   属性文件中：  
+   feign.hystrix.enabled=true  
+   启动jar：  
+   1) java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar  
+   2) java -jar micro-provider-user-0.0.1-SNAPSHOT.jar  
+   3) java -jar micro-consumer-movie-feign-hystrix-fallback-factory-0.0.1-SNAPSHOT.jar  
+   访问：  
+   http://localhost:8010/user/2  
+   停止2），再次访问http://localhost:8010/user/2  
+   显示回退原因：  
+   fallback; reason was java.lang.RuntimeException: com.netflix.client.ClientException: Load balancer does not have available server for client: micro-provider-user  
    

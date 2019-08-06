@@ -44,6 +44,12 @@
     <module>micro-consumer-movie-feign-manual</module>
     <!--电影微服务（Feign 日志）-->
     <module>micro-consumer-movie-feign-logging</module>
+    <!--电影微服务（ribbon整合Hystrix）-->
+    <module>micro-consumer-movie-ribbon-hystrix</module>
+    <!--电影微服务（feign hystrix）-->
+    <module>micro-consumer-movie-feign-hystrix-fallback</module>
+    <!--电影微服务（feign hystrix 回退原因）-->
+    <module>micro-consumer-movie-feign-hystrix-fallback-factory</module>
   </modules>
 
 </project>
