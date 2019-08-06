@@ -117,5 +117,15 @@ java -jar micro-discovery-eureka-authenticating-0.0.1-SNAPSHOT.jar
    访问：
    http://localhost:8010/user-admin/2  
    http://localhost:8010/user-user/2  
+
+17. Feign日志处理  
+   日志配置类:com.lc.cloud.config.FeignLogConfig  
+   Logger.Level.FULL;   
+   Feign的日志只对DEBUG作出响应  
+   启动jar：  
+   java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar  
+   java -jar micro-provider-user-0.0.1-SNAPSHOT.jar  
+   java -jar micro-consumer-movie-feign-logging-0.0.1-SNAPSHOT.jar  
+   
    
    

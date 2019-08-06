@@ -42,6 +42,8 @@
     <module>micro-provider-user-with-auth</module>
     <!--电影微服务（自定义Feign）-->
     <module>micro-consumer-movie-feign-manual</module>
+    <!--电影微服务（Feign 日志）-->
+    <module>micro-consumer-movie-feign-logging</module>
   </modules>
 
 </project>

@@ -1,0 +1,22 @@
+server:
+  port: 8010
+
+user:
+  userServiceUrl: http://localhost:8000/
+spring:
+  application:
+    name: micro-consumer-movie-feign-loggings
+# eureka config.
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    # 表示将自己的IP注册到Eureka server。
+    prefer-ip-address: true
+# feign日志配置.
+logging:
+  level:
+    # 将Feign接口的日志级别设置成DEBUG,Feign的日志只对DEBUG作出响应.
+    com.lc.cloud.feign.UserFeignClient: DEBUG
+#    com.lc.cloud.feign.UserFeignClient: HEADERS
