@@ -50,6 +50,12 @@
     <module>micro-consumer-movie-feign-hystrix-fallback</module>
     <!--电影微服务（feign hystrix 回退原因）-->
     <module>micro-consumer-movie-feign-hystrix-fallback-factory</module>
+    <!--电影微服务（feign hystrix 监控）-->
+    <module>micro-consumer-movie-feign-hystrix-fallback-stream</module>
+    <!--Hystrix dashboard.-->
+    <module>micro-hystrix-dashboard</module>
+    <!--Hystrix turbine.-->
+    <module>micro-hystrix-turbine-ha</module>
   </modules>
 
 </project>

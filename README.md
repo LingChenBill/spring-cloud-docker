@@ -167,4 +167,45 @@ java -jar micro-discovery-eureka-authenticating-0.0.1-SNAPSHOT.jar
    停止2），再次访问http://localhost:8010/user/2  
    显示回退原因：  
    fallback; reason was java.lang.RuntimeException: com.netflix.client.ClientException: Load balancer does not have available server for client: micro-provider-user  
-   
+  
+21. Hystrix的监控  
+    启动jar：  
+    1）java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar   
+    2）java -jar micro-provider-user-0.0.1-SNAPSHOT.jar  
+    3）java -jar micro-consumer-movie-ribbon-hystrix-0.0.1-SNAPSHOT.jar  
+    访问：  
+    http://localhost:8010/user/2  
+    http://localhost:8010/hystrix.stream  
+    启动jar：  
+    1）java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar   
+    2）java -jar micro-provider-user-0.0.1-SNAPSHOT.jar  
+    3）java -jar micro-consumer-movie-feign-hystrix-fallback-stream-0.0.1-SNAPSHOT.jar  
+    访问：  
+    http://localhost:8010/user/2  
+    http://localhost:8010/hystrix.stream   
+
+22. Hystrix Dashboard监控  
+    注解：@EnableHystrixDashboard  
+    启动jar： java -jar micro-hystrix-dashboard-0.0.1-SNAPSHOT.jar  
+    访问：  
+    http://localhost:8030/hystrix  
+    输入：  
+    http://localhost:8010/hystrix.stream
+
+23. Hystrix Turbine监控  
+    注解：@EnableTurbine  
+    启动jar：  
+    1）java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar   
+    2）java -jar micro-provider-user-0.0.1-SNAPSHOT.jar  
+    3）java -jar micro-consumer-movie-ribbon-hystrix-0.0.1-SNAPSHOT.jar  
+    4）java -jar micro-consumer-movie-feign-hystrix-fallback-stream-0.0.1-SNAPSHOT.jar
+    5）java -jar micro-hystrix-turbine-ha-0.0.1-SNAPSHOT.jar  
+    6）java -jar micro-hystrix-dashboard-0.0.1-SNAPSHOT.jar  
+    访问：
+    http://localhost:8010/user/2  
+    http://localhost:8020/user/2  
+    http://localhost:8030/hystrix.stream  
+    http://localhost:8031/turbine.stream  
+    Monitor stream click.  
+ 
+    
