@@ -221,4 +221,33 @@ java -jar micro-discovery-eureka-authenticating-0.0.1-SNAPSHOT.jar
     http://localhost:8031/  
     Turbine能够持续不断地显示监控数据。  
     
+25. Zuul路由规则。  
+    注解：@EnableZuulProxy  
+    声明一个代理，该代理使用Ribbon来定位注册在Eureka Server中的微服务；同时还整合了Hystrix.  
+    默认情况下，Zuul会代理所有注册到Eureka Server的微服务。  
+    启动jar：  
+    1）java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar   
+    2）java -jar micro-provider-user-0.0.1-SNAPSHOT.jar  
+    3）java -jar micro-consumer-movie-ribbon-0.0.1-SNAPSHOT.jar  
+    4）java -jar micro-gateway-zuul-0.0.1-SNAPSHOT.jar  
+    访问：  
+    http://localhost:8040/micro-consumer-movie-ribbon/user/3  
+    http://localhost:8040/micro-provider-user/2  
+    Zuul路由规则： 
+    http://ZUUL_HOST:ZUUL_PORT/微服务在Eureka上的serviceId/**会被转发到serviceId对应的微服务。  
+    Zuul可以使用Ribbon达到负载均衡的效果。  
+    测试Hystrix容错与监控：  
+    5）java -jar micro-hystrix-dashboard-0.0.1-SNAPSHOT.jar   
+    访问：  
+    http://localhost:8030/hystrix  
+    输入：  
+    http://localhost:8040/hystrix.stream
+
+26. Zuul的路由端点：  
+    路由管理端点/routes: 方便、直观地查看以及管理Zuul的路由。  
+    注意配置文件中加入：  
+    management.security.enabled: false
+    http://localhost:8040/routes  
+    
+    
     

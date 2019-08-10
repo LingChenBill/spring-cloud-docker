@@ -60,6 +60,8 @@
     <module>micro-consumer-movie-ribbon-hystrix-turbine-mq</module>
     <!--Hystrix turbine 整合 rabbitmq.-->
     <module>micro-hystrix-turbine-rabbitmq</module>
+    <!--gateway zuul.-->
+    <module>micro-gateway-zuul</module>
   </modules>
 
 </project>
