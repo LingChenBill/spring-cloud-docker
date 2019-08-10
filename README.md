@@ -207,5 +207,18 @@ java -jar micro-discovery-eureka-authenticating-0.0.1-SNAPSHOT.jar
     http://localhost:8030/hystrix.stream  
     http://localhost:8031/turbine.stream  
     Monitor stream click.  
- 
+
+24. Rabbit 使用消息中间件收集数据。  
+    注解：@EnableTurbineStream  
+    配置application.yml  
+    启动jar：  
+    1）java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar   
+    2）java -jar micro-provider-user-0.0.1-SNAPSHOT.jar  
+    3）java -jar micro-consumer-movie-ribbon-hystrix-turbine-mq-0.0.1-SNAPSHOT.jar  
+    3）java -jar micro-hystrix-turbine-rabbitmq-0.0.1-SNAPSHOT.jar  
+    访问：  
+    http://localhost:8010/user/2  获取正常结果。  
+    http://localhost:8031/  
+    Turbine能够持续不断地显示监控数据。  
+    
     

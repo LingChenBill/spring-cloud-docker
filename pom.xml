@@ -56,6 +56,10 @@
     <module>micro-hystrix-dashboard</module>
     <!--Hystrix turbine.-->
     <module>micro-hystrix-turbine-ha</module>
+    <!--电影微服务（ribbon hystrix turbine rabbitmq)-->
+    <module>micro-consumer-movie-ribbon-hystrix-turbine-mq</module>
+    <!--Hystrix turbine 整合 rabbitmq.-->
+    <module>micro-hystrix-turbine-rabbitmq</module>
   </modules>
 
 </project>
