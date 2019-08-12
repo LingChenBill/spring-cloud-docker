@@ -248,6 +248,26 @@ java -jar micro-discovery-eureka-authenticating-0.0.1-SNAPSHOT.jar
     注意配置文件中加入：  
     management.security.enabled: false
     http://localhost:8040/routes  
+
+27. 文件上传。
+    启动jar：  
+    1）java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar   
+    2）java -jar micro-file-upload-0.0.1-SNAPSHOT.jar   
+    3）java -jar micro-gateway-zuul-0.0.1-SNAPSHOT.jar  
+    访问：  
+    curl -F "file=@smallsize.zip" localhost:8050/upload  
+    curl -F "file=@largesize.zip" localhost:8050/upload  
+    通过Zuul上传小文件    
+    curl -v -H "Transfer-Encoding: chunked" -F "file=@smallsize.zip" localhost:8040/micro-file-upload/upload
     
-    
+    通过Zuul上传大文件，不添加前缀/zuul：  
+    curl -v -H "Transfer-Encoding: chunked" -F "file=@largesize.zip" localhost:8040/micro-file-upload/upload  
+    会报错：  
+    FileUploadBase$FileSizeLimitExceededException: The field file exceeds its maximum permitted size of 1048576 bytes  
+    通过Zuul上传大文件，添加前缀/zuul：  
+    curl -v -H "Transfer-Encoding: chunked" -F "file=@largesize.zip" localhost:8040/zuul/micro-file-upload/upload  
+    会报错：  
+    com.netflix.hystrix.exception.HystrixRuntimeException: micro-file-upload timed-out and no fallback available.  
+    3）java -jar micro-gateway-zuul-file-upload-0.0.1-SNAPSHOT.jar  
+    curl -v -H "Transfer-Encoding: chunked" -F "file=@rightsize.avi" localhost:8040/zuul/micro-file-upload/upload
     

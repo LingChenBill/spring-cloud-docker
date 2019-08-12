@@ -62,6 +62,10 @@
     <module>micro-hystrix-turbine-rabbitmq</module>
     <!--gateway zuul.-->
     <module>micro-gateway-zuul</module>
+    <!--文件上传微服务。-->
+    <module>micro-file-upload</module>
+    <!--zuul文件上传（大文件上传超时）-->
+    <module>micro-gateway-zuul-file-upload</module>
   </modules>
 
 </project>
