@@ -270,4 +270,24 @@ java -jar micro-discovery-eureka-authenticating-0.0.1-SNAPSHOT.jar
     com.netflix.hystrix.exception.HystrixRuntimeException: micro-file-upload timed-out and no fallback available.  
     3）java -jar micro-gateway-zuul-file-upload-0.0.1-SNAPSHOT.jar  
     curl -v -H "Transfer-Encoding: chunked" -F "file=@rightsize.avi" localhost:8040/zuul/micro-file-upload/upload
-    
+
+28. Zuul过滤器  
+    实现ZuulFilter接口
+    启动jar：  
+    1）java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar  
+    2）java -jar micro-provider-user-0.0.1-SNAPSHOT.jar  
+    3）java -jar micro-gateway-zuul-filter-0.0.1-SNAPSHOT.jar  
+    访问：  
+    http://localhost:8040/micro-provider-user/3  
+    禁用规则：zuul.<simpleClassName>.<filterType>.disable=true  
+
+29. 为Zuul设置容错与回退。  
+    实现UserFallbackProvider implements ZuulFallbackProvider：  
+    启动jar：  
+    1）java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar  
+    2）java -jar micro-provider-user-0.0.1-SNAPSHOT.jar  
+    3）java -jar micro-gateway-zuul-fallback-0.0.1-SNAPSHOT.jar  
+    访问：  
+    http://localhost:8040/micro-provider-user/3  
+    关闭用户提供微服务2），再访问  
+    用户微服务不可用，请稍后再试。  

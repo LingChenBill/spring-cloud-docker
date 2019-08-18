@@ -1,0 +1,17 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: micro-gateway-zuul-filter
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+# 禁用Zuul过滤器。
+# 禁用规则：zuul.<simpleClassName>.<filterType>.disable=true
+zuul:
+  PreRequestLogFilter:
+    pre:
+      disable: true

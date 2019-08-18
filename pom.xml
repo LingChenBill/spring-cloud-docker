@@ -66,6 +66,10 @@
     <module>micro-file-upload</module>
     <!--zuul文件上传（大文件上传超时）-->
     <module>micro-gateway-zuul-file-upload</module>
+    <!--zuul filter-->
+    <module>micro-gateway-zuul-filter</module>
+    <!--zuul 添加回退。-->
+    <module>micro-gateway-zuul-fallback</module>
   </modules>
 
 </project>
