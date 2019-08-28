@@ -46,17 +46,3 @@ eureka:
   instance:
     # 表示将自己的IP注册到Eureka server。
     prefer-ip-address: true
-#keycloak:
-#  realm: SpringBootKeycloak
-#  auth-server-url: http://localhost:8180/auth
-#  ssl-required: external
-#  resource: product-app
-#  public-client: true
-#  verify-token-audience: true
-#  use-resource-role-mappings: true
-#  confidential-port: 0
-  # confidential-port: 0
-#  security-constraints[0]:
-#    authRoles[0]: role-user
-#    securityCollections[0]:
-#      patterns[0]: /customers/*

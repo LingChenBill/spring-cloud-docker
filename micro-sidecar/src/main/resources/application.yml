@@ -1,0 +1,17 @@
+server:
+  port: 8070
+spring:
+  application:
+    name: micro-sidecar
+eureka:
+  client:
+    service-url:
+      # 设置与Eureka server交互的地址，查询服务和注册服务都需要依赖这个地址。
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+sidecar:
+  # Node.js微服务的端口
+  port: 8060
+  # Node.js微服务的健康检查URL
+  health-uri: http://localhost:8060/health.json

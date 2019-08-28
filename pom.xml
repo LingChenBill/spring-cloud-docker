@@ -70,6 +70,8 @@
     <module>micro-gateway-zuul-filter</module>
     <!--zuul 添加回退。-->
     <module>micro-gateway-zuul-fallback</module>
+    <!-- sidecar微服务 -->
+    <module>micro-sidecar</module>
   </modules>
 
 </project>
