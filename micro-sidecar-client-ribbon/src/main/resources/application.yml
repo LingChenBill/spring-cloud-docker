@@ -1,0 +1,12 @@
+server:
+  port: 8071
+spring:
+  application:
+    name: micro-sidecar-client-ribbon
+eureka:
+  client:
+    service-url:
+      # 设置与Eureka server交互的地址，查询服务和注册服务都需要依赖这个地址。
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true

@@ -2,7 +2,8 @@ server:
   port: 8010
 
 user:
-  userServiceUrl: http://localhost:8000/
+#  userServiceUrl: http://localhost:8000/
+  userServiceUrl: http://localhost:8081/
 spring:
   application:
     name: micro-consumer-movie

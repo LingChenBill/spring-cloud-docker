@@ -72,6 +72,10 @@
     <module>micro-gateway-zuul-fallback</module>
     <!-- sidecar微服务 -->
     <module>micro-sidecar</module>
+    <!--sidecar JVM微服务。-->
+    <module>micro-sidecar-client-ribbon</module>
+    <!--Zuul聚合微服务。-->
+    <module>micro-gateway-zuul-aggregation</module>
   </modules>
 
 </project>

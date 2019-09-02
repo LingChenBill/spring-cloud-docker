@@ -1,0 +1,71 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: micro-gateway-zuul-aggregation
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+# 开启Zuul转发的具体细节 。
+logging:
+  level:
+    com.netflix: DEBUG
+# 开启Zuul的路由端点.
+management:
+  security:
+    enabled: false
+# -----路由前缀。
+zuul:
+  prefix: /user
+  strip-prefix: false
+  routes:
+    user-route:
+      # http://localhost:8040/user/micro-consumer-movie-ribbon/1
+      # 会被转发到http://localhost:8040/micro-consumer-movie-ribbon/user/1
+      service-id: micro-consumer-movie-ribbon
+      path: /user/**
+## -----同时指定path和URL,并且不破坏Zuul的Hystrix,Ribbon
+#zuul:
+#  routes:
+#    user-route:
+#      service-id: micro-provider-user
+#      path: /user/**
+## 为Ribbon禁用Eureka.
+#ribbon:
+#  eureka:
+#    enabled: false
+#micro-provider-user:
+#  ribbon:
+#    listOfServers: localhost:8000,localhost:8001
+## -----同时指定path和URL。这种方式不会作为HystrixCommand执行，同时也不能使用Ribbon来负载均衡多个URL。
+#zuul:
+#  routes:
+#    user-route:
+#      # 指定的URL。
+#      url: http://localhost:8000/
+#      # url对应的路径。
+#      path: /user/**
+## -----同时指定微服务的serviceId和对应路径。
+#zuul:
+#  routes:
+#    # user-route只是给路由一个名称，可以任意起名。
+#    user-route:
+#      service-id: micro-consumer-movie-ribbon
+#      # service-id对应的路径。
+#      path: /user/**
+## -----忽略所有微服务，只路由指定微服务。
+#zuul:
+#  # 使用'*'可忽略所有微服务。
+#  ignored-services: '*'
+#  routes:
+#    micro-provider-user: /user/**
+#zuul:
+#  # 自定义指定微服务的访问路径。
+#  routes:
+#    # 访问----http://localhost:8040/user/user/1
+#    micro-consumer-movie-ribbon: /user/**
+#  # 忽略指定微服务。
+#  ignored-services: micro-consumer-movie-ribbon

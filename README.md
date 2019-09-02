@@ -291,3 +291,29 @@ java -jar micro-discovery-eureka-authenticating-0.0.1-SNAPSHOT.jar
     http://localhost:8040/micro-provider-user/3  
     关闭用户提供微服务2），再访问  
     用户微服务不可用，请稍后再试。  
+
+30. Sidecar微服务  
+    非JVM微服务访问JVM微服务。  
+    启动jar：  
+    1）java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar  
+    2）java -jar micro-provider-user-0.0.1-SNAPSHOT.jar  
+    3）java -jar micro-sidecar-0.0.1-SNAPSHOT.jar  
+    4) node node-service.js  
+    5) java -jar micro-sidecar-0.0.1-SNAPSHOT.jar  
+    5) java -jar micro-sidecar-client-ribbon-0.0.1-SNAPSHOT.jar
+    访问：非JVM微服务访问JVM微服务。  
+    http://localhost:8070/micro-provider-user/2  
+    访问：JVM微服务访问非JVM微服务。  
+    http://localhost:8071/test  
+    
+31. 聚合微服务: 将用户微服务接口与电影用户微服务接口聚合到一个微服务接口中    
+    启动jar：  
+    1）java -jar micro-discovery-eureka-0.0.1-SNAPSHOT.jar  
+    2）java -jar micro-provider-user-0.0.1-SNAPSHOT.jar  
+    3）java -jar micro-consumer-movie-0.0.1-SNAPSHOT.jar  
+    4) java -jar micro-gateway-zuul-aggregation-0.0.1-SNAPSHOT.jar  
+    访问：  
+    http://localhost:8040/aggregate/2  
+     
+ 
+    
