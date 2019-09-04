@@ -76,6 +76,10 @@
     <module>micro-sidecar-client-ribbon</module>
     <!--Zuul聚合微服务。-->
     <module>micro-gateway-zuul-aggregation</module>
+    <!--config server微服务。-->
+    <module>micro-config-server</module>
+    <!--config client微服务。-->
+    <module>micro-config-client</module>
   </modules>
 
 </project>

@@ -315,5 +315,20 @@ java -jar micro-discovery-eureka-authenticating-0.0.1-SNAPSHOT.jar
     访问：  
     http://localhost:8040/aggregate/2  
      
- 
+32. 构建Spring cloud config Server.  
+    启动jar:  
+    1）java -jar micro-config-server-0.0.1-SNAPSHOT.jar  
+    访问:  
+    http://localhost:8080/micro-foo/dev  
+    http://localhost:8080/micro-foo-test.properties  
+    http://localhost:8080/micro-foo-production.yml  
+    http://localhost:8080/config-label-v2.0/micro-foo-test.properties  
+
+33. 构建Spring cloud config client.  
+    启动jar:  
+    1）java -jar micro-config-server-0.0.1-SNAPSHOT.jar  
+    2）java -jar micro-config-client-0.0.1-SNAPSHOT.jar  
+    访问:  
+    http://localhost:8081/profile  
+        
     
